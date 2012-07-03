@@ -5,6 +5,10 @@ class App < Nancy::Base
   use Rack::Static, :urls => ["/css", "/img", "/js"], :root => "public"
 
   get "/" do
-    render "views/index.erb"
+    render("views/layout.erb"){ render "views/index.erb" }
+  end
+
+  get "/details" do
+    render("views/layout.erb"){ render "views/details.erb" }
   end
 end
